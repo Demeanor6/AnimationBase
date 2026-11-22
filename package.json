@@ -1,0 +1,19 @@
+{
+  "name": "psyduck-animation-base",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "description": "Extensible hand-painted p5.brush character animation kit featuring Psyduck and swap-ready protagonist blueprints",
+  "scripts": {
+    "sheet": "node render.mjs --sheet=0,1,2,3,4,5 --out=out/sheet.jpg",
+    "sheets": "node render.mjs --loop=emotions --sheet=1 --cols=1 --w=1920 --out=docs/psyduck_emotions.jpg && node render.mjs --loop=views --sheet=1 --cols=1 --w=1920 --out=docs/psyduck_views.jpg",
+    "verify": "node scripts/verify_clipping.mjs",
+    "showcase": "node render.mjs --frames --workers=4 && node render.mjs --encode --out=out/psyduck_showcase.mp4",
+    "video": "node render.mjs --clip --out=out/video.mp4"
+  },
+  "dependencies": {
+    "p5": "^2.3.3",
+    "p5.brush": "^2.2.3",
+    "puppeteer-core": "^25.11.0"
+  }
+}
