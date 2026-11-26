@@ -35,8 +35,8 @@
     floor(405);
 
     const y2 = 720, u2 = spec.metrics.height > 9.5 ? 11.5 : 13;
-    const extra6 = spec.id === 'woodpecker' ? 'peck' : 'headache';
-    const extra7 = spec.id === 'woodpecker' ? 'flutter' : 'psychic';
+    const extra6 = spec.id === 'woodpecker' ? 'peck' : spec.id === 'tuyiyi' ? 'point_up' : 'headache';
+    const extra7 = spec.id === 'woodpecker' ? 'flutter' : spec.id === 'tuyiyi' ? 'sweet_wave' : 'psychic';
     const row = [
       ['walk (side)', x => actor(x, y2, u2, { ...move('walk', t), view: 'side' })],
       ['turn / spinView', x => actor(x, y2, u2, { ...feel('happy', t), ...spinView(Math.floor(t * 2) / 8) })],
@@ -63,4 +63,14 @@
     floor(988);
   };
   LOOPS.views.len = 4;
+
+  // High-resolution full-body reference pose showcase for 1:1 visual inspection against reference artwork
+  LOOPS.ref_pose = t => {
+    const spec = CharacterRegistry.getActive();
+    const poseName = spec.id === 'tuyiyi' ? 'point_up' : 'neutral';
+    const u = Math.min(82, 905 / (spec.metrics.height || 10));
+    floor(1002, 560, 1360);
+    actor(960, 1002, u, feel(poseName, t, { seed: 0 }));
+  };
+  LOOPS.ref_pose.len = 4;
 })();

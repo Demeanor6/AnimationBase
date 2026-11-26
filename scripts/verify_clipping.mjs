@@ -193,7 +193,7 @@ try {
       }
     }
 
-    for (const charId of ['woodpecker', 'psyduck']) {
+    for (const charId of ['woodpecker', 'psyduck', 'tuyiyi']) {
       const stats = { emotionChecks: 0, viewChecks: 0, hatChecks: 0, danceChecks: 0 };
       const emoNames = Object.keys(CharacterRegistry.resolveEmotions(charId));
       for (const name of emoNames) {
